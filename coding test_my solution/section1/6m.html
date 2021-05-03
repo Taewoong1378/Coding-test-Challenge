@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+
+	let odd;
+	let sum;
+	let output;
+
+	const sumin = (arr) => {
+		odd = arr.filter((value)=>value % 2 === 1);
+		sum = 0;
+		output = odd[0];
+		for(item of odd){
+			sum += item;
+			if(output > item){
+				output = item;
+			}
+		}
+
+		console.log(sum);
+		console.log(output);
+	}
+
+
+	const a = [12, 77, 38, 41, 53, 92, 85];
+	sumin(a);
+
+</script>
+<body>
+	
+</body>
+</html>
