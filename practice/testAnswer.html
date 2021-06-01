@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	// 3과 5의 배수의 총합 (1000 미만)
+	let result = 0;
+	for(let i=1;i<1000;i++){
+		if(i % 3 === 0 || i % 5 === 0){
+			result += i;
+		}
+	}
+	console.log('3과 5의 배수의 총합 : ', result);
+	console.log('');
+
+
+	// 피보나치 수열 (재귀 사용 & 재귀 사용 X)
+	// 1. 재귀 사용 X -> n번째 항의 피보나치 수 출력
+	function fibonacci1(n){
+		if(n<=2) return 1;
+		let result = 0;
+		let i = 1;
+		let num1 = 0;
+		let num2 = 1;
+		while(i < n){
+			result = num1 + num2;
+			num1 = num2;
+			num2 = result;
+			i++;
+		}
+		return result;
+	}
+	console.log('재귀 사용하지 않은 n번째 피보나치 수 : ', fibonacci1(10));
+
+
+	// 2. 재귀 사용 X -> n번째 항까지의 피보나치 수열 출력
+	function fibonacci2(n){
+		if(n<=2) return 1;
+		const result = [];
+		result.push(1);
+		let i = 1;
+		let num1 = 0;
+		let num2 = 1;
+		while(i < n){
+			sum = num1 + num2;
+			result.push(sum);
+			num1 = num2;
+			num2 = sum;
+			i++;
+		}
+		return result;
+	}
+	console.log('재귀 사용하지 않은 n번째 항까지의 피보나치 수열 : ', fibonacci2(10));
+
+
+	// 3. 재귀 사용 O -> n번째 항의 피보나치 수 출력
+	function fibonacci3(n) {
+		if (n < 2) {
+	    	return n;
+	  	} else {
+	    	return fibonacci3(n - 1) + fibonacci3(n - 2);
+	  }
+	}
+	console.log('재귀 사용한 n번째 피보나치 수 : ', fibonacci3(10));
+	console.log('');
+
+	// 팩토리얼
+	// 1. 재귀 사용 X
+	function factorial1(n){
+		let result = 1;
+		for(i=n;i>=1;i--){
+			result *= i;
+		}
+		return result;
+	}
+	console.log('재귀 사용 X 팩토리얼 : ', factorial1(4));
+
+
+	// 2. 재귀 사용 O
+    function factorial(n) {
+        if (n === 1) { // Base case, Termination case
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
+    console.log('재귀 사용 O 팩토리얼 : ', factorial(4));
+    console.log('');
+
+
+	// Fizzbuzz (1~100중에서 3의 배수 : fizz, 5의 배수 : buzz, 3과 5의 공배수 : fizzbuzz)
+	const fizzBuzz = [];
+	for(let i=1;i<=100;i++){
+		if(i%3===0 && i%5===0){
+			fizzBuzz.push('fizzbuzz');
+		} else if(i%3 === 0){
+			fizzBuzz.push('fizz');
+		} else if(i%5 === 0){
+			fizzBuzz.push('buzz');
+		} else {
+			fizzBuzz.push(i);
+		}
+	}
+	console.log('FizzBuzz : ', fizzBuzz);
+	console.log('');
+
+
+	// 1~100까지 홀수의 합 & 1~100까지 홀수의 합을 구하되 3의 배수는 빼서 더해라
+	let output = 0;
+	for(let i=1;i<=100;i+=2){
+		output += i;
+	}
+	console.log('1~100까지 홀수의 합 : ', output);
+
+	let output2 = 0;
+	for(let i=1;i<=100;i+=2){
+		if(i%3 !==0){
+			output2 += i;
+		}
+	}
+	console.log('1~100까지 홀수의 합 중 3의 배수를 뺀 값', output2);
+	console.log('');
+
+
+	// 최대공약수 최소공배수
+	function solution(a, b){
+		const GCF = (a, b)=> a % b === 0 ? b : GCF(b, a % b); // 유클리드 호제법
+		const LCM = (a, b) => a * b / GCF(a, b);
+		return [GCF(a,b), LCM(a,b)];
+	}
+	console.log(solution(15, 20));
+	console.log('');
+
+
+	// 구구단 만들기
+	console.log('구구단 시작이요');
+	for(let i=2;i<=9;i++){
+		for(let j=1;j<=9;j++){
+			console.log(`${i}*${j} = ${i * j}`);
+		}
+	}
+	console.log('구구단 끝이요');
+	console.log('');
+
+	// 피라미드 출력
+	// 1. 기본 피라미드 (10층짜리)
+	console.log('기본 피라미드');
+	let piramid1 = '';
+	for(let i=1;i<=10;i++){
+		for(let j=0;j<i;j++){
+			piramid1 += '*';
+		}
+		piramid1 += '\n';
+	}
+	console.log(piramid1);
+	console.log('');
+ 
+	// 2. 심화 피라미드
+	console.log('심화 피라미드');
+	let piramid2 = '';
+	function tree(a){
+		for(let i=1;i<=a;i++){
+			for(let j=a;j>=i;j--){
+				piramid2 += ' ';
+			}
+			for(let k=1;k<=2*i-1;k++){
+				piramid2 += '*';
+			}
+			piramid2 += '\n';
+		}
+		return piramid2;
+	}
+
+	console.log(tree(10));
+	console.log('');
+
+	// 하노이탑 알고리즘
+    function hanoitop(n) {
+        const answer = [];
+
+        function hanoi(n, from, to) {
+            const by = 6 - from - to;
+
+            if (n === 1) {
+                answer.push([from, to]);
+            } else {
+                hanoi(n - 1, from, by);
+                answer.push([from, to]);
+                hanoi(n - 1, by, to);
+            }
+        }
+        hanoi(n, 1, 3);
+
+        return answer;
+    }	
+	console.log('하노이탑 경우의 수 : ', hanoitop(3));
+	console.log('');
+
+	// 로또 번호 (순서대로 정렬해서)
+	const lotto = [];
+	for(let i=0;i<6;i++){
+		lotto.push(Math.floor(Math.random()*45)+1);
+		for(let c=0;c<i;c++){
+			if(lotto[i]===lotto[c]){
+				lotto.splice(c,1);
+				i--;
+			}
+		}
+	}
+	const lottoSort = lotto.sort(function(a,b){
+		return a - b;
+	});
+	console.log(`로또 번호 : ${lottoSort}`);
+	console.log('');
+
+
+	// 10번 동안 1~10까지 랜덤한 숫자를 출력하여 중복된 숫자가 있을 경우 true, false를 리턴
+	const random = [];
+	for(i=0;i<10;i++){
+		random.push(Math.floor(Math.random()*9+1));
+		for(let c=0;c<i;c++){
+			if(random[i]===random[c]){
+				random.splice(c,1,`${c}(중복)`);
+			}
+		}
+	}
+	console.log(`random : ${random}`);
+	console.log('');
+
+
+	// 버블정렬
+	console.log('버블 정렬');
+	function bubbleSort(arr){
+		let temp;
+		for(let i=0;i<arr.length-1;i++){
+			for(let j=0;j<arr.length-i-1;j++){
+				if(arr[j]>arr[j+1]){
+					temp = arr[j]; 
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+			console.log(`${i+1}회전 : ${arr}`);
+			if(!temp){
+				break;
+			}
+		}
+		return arr;
+	}
+	console.log(bubbleSort([5,4,3,2,1]));
+	console.log('');
+
+
+	// 삽입정렬
+	console.log('삽입 정렬');
+	function insertionSort(arr){
+		for(let i=1;i<arr.length;i++){
+			let left = i - 1;
+			let cur = arr[i];
+			while(left >=0 && arr[left] > cur){
+				arr[left + 1] = arr[left];
+				left--;
+			}
+			arr[left + 1] = cur;
+			console.log(`${i}회전 : ${arr}`);
+		}
+		return arr;
+	}
+	console.log(insertionSort([5,4,3,2,1]));
+	console.log('');
+
+
+	// 선택정렬
+	console.log('선택 정렬');
+	function selectionSort(arr){
+		for(let i=0;i<arr.length;i++){
+			let minIndex = i;
+			for(let j=i+1;j<arr.length;j++){
+				if(arr[minIndex] > arr[j]){
+					minIndex = j;
+				}
+			}
+			if(minIndex !==i){
+				let temp = arr[minIndex];
+				arr[minIndex] = arr[i];
+				arr[i] = temp;				
+			}
+			console.log(`${i+1}회전 : ${arr}`);
+		}
+		return arr;
+	}
+	console.log(selectionSort([5,4,3,2,1]));
+	console.log('');
+
+
+	// 큐
+	class Queue {
+		constructor(){
+			this._arr = [];
+		}
+
+		enqueue(item){
+			this._arr.push(item);
+		}
+
+		dequeue(){
+			return this._arr.shift();
+		}
+	}
+
+	const queue = new Queue();
+	queue.enqueue(1);
+	queue.enqueue(2);
+	queue.enqueue(3);
+	queue.dequeue();
+	console.log(queue);
+	console.log();
+
+
+	// 스택
+	class Stack {
+		constructor(){
+			this._arr = [];
+		}
+
+		push(item){
+			this._arr.push(item);
+		}
+
+		pop(){
+			return this._arr.pop();
+		}
+
+		peek(){
+			return this._arr[this._arr.length-1];
+		}
+	}
+	const stack = new Stack();
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	stack.pop(); 
+	console.log(stack);// 3
+	console.log('');
+
+
+	// 아나그램
+	function anagram(a, b){
+		let answer;
+		const array1 = a.split('').sort();
+		const array2 = b.split('').sort();
+		for(let i=0;i<array1.length;i++){
+			if(array1[i] === array2[i]){
+				answer = 'Yes';
+			} else {
+				answer = 'NO';
+			}
+		}
+		return answer;
+	}
+
+	const a1 = 'AbaAeCe';
+	const a2 = 'baeeACA';
+
+	console.log('isAnagram? : ', anagram(a1,a2));
+
+</script>
+<body>
+	
+</body>
+</html>
