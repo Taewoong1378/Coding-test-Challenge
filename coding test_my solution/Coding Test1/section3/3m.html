@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	function solution(s){
+		let word = s;
+		answer = '';
+		word = word.split('');
+		for(let i=0;i<word.length;i++){
+			if(Object.is(Number(word[i]),NaN)===false){
+				answer += word[i];
+			}
+		}
+		return parseInt(answer);
+	}
+	const str = "g0en2T0s8eSoft";
+	console.log(solution(str));
+
+</script>
+<body>
+	
+</body>
+</html>

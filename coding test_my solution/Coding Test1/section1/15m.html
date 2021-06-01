@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	function solution(s){
+		let output = ""
+		if(s.length % 2 === 1){
+			const a = Math.floor(s.length/2);
+			return output = s[a];
+		} else {
+			return output = s.slice(s.length/2-1, s.length/2+1);
+		}
+	}
+
+	const str1 = 'study';
+	const str2 = 'good';
+	console.log(solution(str1));
+	console.log(solution(str2));
+
+</script>
+<body>
+	
+</body>
+</html>

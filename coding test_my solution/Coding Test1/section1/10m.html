@@ -7,7 +7,20 @@
 </head>
 <script>
 	
-	console.log('hello');
+	function findWord(word,A){
+
+		let count = 0;
+		for(let x of word){
+			if(x === A){
+				count++;				
+			}
+		}
+		console.log(count);
+	}
+
+
+	findWord('COMPUTERPROGRAMMING','R');
+
 
 </script>
 <body>

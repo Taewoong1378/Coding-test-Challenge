@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	function solution(a){
+
+		let answer;
+		const array = a.toLowerCase().split('');
+		for(let i=0;i<array.length;i++){
+			if(array[i]===array.reverse()[i]){
+				answer = 'YES';
+			} else {
+				answer = 'NO';
+			}			
+		}
+		return answer;
+	}
+
+	const a = 'gooG';
+	const b = 'apppA';
+	const c = 'abcde';
+	console.log(solution(a));
+	console.log(solution(b));
+	console.log(solution(c));
+
+
+</script>
+<body>
+	
+</body>
+</html>

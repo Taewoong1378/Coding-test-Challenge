@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+    function selectionSort(array) {
+        for (let i = 0; i < array.length; i++) {
+            let minIndex = i;
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[minIndex] > array[j]) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex !== i) {
+                let swap = array[minIndex];
+                array[minIndex] = array[i];
+                array[i] = swap;
+            }
+            console.log(`${i}회전: ${array}`);
+        }
+        return array;
+    }
+    console.log(selectionSort([5, 4, 3, 2, 1]));	
+
+    // Worst Case: O(n^2): 정렬이 하나도 안되어있는 경우
+    // Best Case: O(n^2): 이미 정렬이 되어있는 경우
+    // 선택 정렬은 위의 두 정렬과는 다르게 정렬이 이미 되어있는 경우에도 O(n^2)의 시간 복잡도를 가진다.
+
+    // 그 이유는 매번 정해진 자리에 올 수 있는 최소값을 찾아야하기 때문이다. 그렇기 때문에 성능이 매우 떨어진다
+
+    // 선택 정렬은 데이터가 중복된 경우 위치가 바뀔 수 있기 때문에 Unstable한 정렬이다. 
+
+	
+</script>
+<body>
+	
+</body>
+</html>

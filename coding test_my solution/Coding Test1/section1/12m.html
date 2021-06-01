@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	function solution1(word){
+		console.log(word.toUpperCase());
+	}
+
+	solution1('ItisTimeToStudy');
+
+
+	function solution2(word){
+		let answer = "";
+		for(x of word){
+			if(x === x.toLowerCase()){
+				answer += x.toUpperCase();
+			} else {
+				answer += x;
+			}
+		}
+		console.log(answer);
+	}
+	solution2('ItisTImeToStudy');
+
+</script>
+<body>
+	
+</body>
+</html>

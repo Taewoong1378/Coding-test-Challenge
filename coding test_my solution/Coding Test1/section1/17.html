@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+	
+	function solution(s){
+		let answer = s.filter((value,index)=>{
+			if(s.indexOf(value) === index){
+				return value;
+			}
+		})
+		return answer;
+	}
+
+    let str=["good", "time", "good", "time", "student"];
+    console.log(solution(str));	
+
+</script>
+<body>
+	
+</body>
+</html>
