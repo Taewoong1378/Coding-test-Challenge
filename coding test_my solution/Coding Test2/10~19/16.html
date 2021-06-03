@@ -7,11 +7,12 @@
 </head>
 <script>
 	
-	let s = 0;
-	for(let i=1;i<=100;i++){
-		s += i;
+	function solution(n){
+		const a = n.split('').reverse();
+		const result = a.join('');
+		console.log(result);
 	}
-	console.log(s);
+	solution('거꾸로');
 
 </script>
 <body>

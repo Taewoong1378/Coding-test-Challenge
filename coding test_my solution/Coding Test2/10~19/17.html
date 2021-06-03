@@ -7,11 +7,15 @@
 </head>
 <script>
 	
-	let s = 0;
-	for(let i=1;i<=100;i++){
-		s += i;
+	function solution(n){
+		if(n>=150){
+			return 'YES';
+		} else {
+			return 'NO';
+		}
 	}
-	console.log(s);
+	console.log(solution(148));
+
 
 </script>
 <body>
