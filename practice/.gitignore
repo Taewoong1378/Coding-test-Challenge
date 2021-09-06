@@ -48,7 +48,7 @@ build/Release
 
 # Dependency directories
 node_modules/
-practice/
+practice.html
 jspm_packages/
 react-nodebird-master/
 
