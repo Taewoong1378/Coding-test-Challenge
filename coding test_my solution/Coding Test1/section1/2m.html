@@ -9,13 +9,13 @@
 	
 	function triangle(A, B, C){
 		if(A+B<=C || B+C<=A || C+A<=B){
-			console.log(`"NO"`);
+			return "NO";
 		} else {
-			console.log(`"YES"`);
+			return "YES";
 		}
 	}
-	triangle(6,7,11);
-	triangle(13,33,17);
+	console.log(triangle(6,7,11));
+	console.log(triangle(13,33,17));
 
 </script>
 <body>
